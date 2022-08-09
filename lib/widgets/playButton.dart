@@ -11,7 +11,6 @@ class PlayButton extends StatefulWidget {
 
 class _PlayButtonState extends State<PlayButton> {
   @override
-
   bool isPlaying = false;
   final player = AudioPlayer();
   String source = KPOP;
@@ -35,9 +34,9 @@ class _PlayButtonState extends State<PlayButton> {
       child: Material(
         color: Colors.transparent,
         child: IconButton(
-          onPressed: () async{
-            if(isPlaying){
-              await player.pause();
+          onPressed: () async {
+            if (isPlaying) {
+              await player.stop();
             } else {
               await player.play(source);
             }
@@ -52,5 +51,3 @@ class _PlayButtonState extends State<PlayButton> {
     );
   }
 }
-
-
