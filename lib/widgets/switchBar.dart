@@ -9,7 +9,7 @@ class SwitchBar extends StatefulWidget {
 }
 
 class _SwitchBarState extends State<SwitchBar> {
-  var selectedSource; // 1 is JPOP, 2 is KPOP
+  var _selectedSource; // 1 is JPOP, 2 is KPOP
   Color InActivecolor = Color(0xff2C2C2C);
   Color Activecolor = Color(0xffCF5167);
   @override
@@ -25,15 +25,15 @@ class _SwitchBarState extends State<SwitchBar> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           customButton(
-              selectedSource == 1 ? Activecolor : InActivecolor, 'JPOP', () {
+              _selectedSource == 1 ? Activecolor : InActivecolor, 'JPOP', () {
             setState(() {
-              selectedSource = 1;
+              _selectedSource = 1;
             });
           }),
           customButton(
-              selectedSource == 2 ? Activecolor : InActivecolor, 'KPOP', () {
+              _selectedSource == 2 ? Activecolor : InActivecolor, 'KPOP', () {
             setState(() {
-              selectedSource = 2;
+              _selectedSource = 2;
             });
           }),
         ],
