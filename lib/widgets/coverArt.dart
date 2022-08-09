@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget coverArt() {
+Widget CoverArt() {
   return Container(
     child: Image.asset('assets/test.jpg'),
     margin: EdgeInsets.all(30),

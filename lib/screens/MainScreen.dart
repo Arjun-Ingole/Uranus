@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            coverArt(),
+            CoverArt(),
             SwitchBar(),
             Padding(
               padding: const EdgeInsets.all(15),
