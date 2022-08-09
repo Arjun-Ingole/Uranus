@@ -9,16 +9,11 @@ Widget SwitchBar() {
       right: 25,
       left: 25,
     ),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(15.0),
-      color: Color(0x8C202020),
-    ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         customButton(Color(0xff2C2C2C), 'JPOP'),
         customButton(Color(0xffCF5167), 'KPOP'),
-        customButton(Color(0xff2C2C2C), 'LOFI'),
       ],
     ),
   );

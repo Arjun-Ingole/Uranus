@@ -18,20 +18,20 @@ class _MainScreenState extends State<MainScreen> {
       child: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[
-                Color(0x00EF5D77),
-                Color(0xff000000),
-              ],
-            )),
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Color(0x00EF5D77),
+            Color(0xff000000),
+          ],
+        )),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             coverArt(),
             SwitchBar(),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(15),
               child: Material(
                 color: Colors.transparent,
                 child: Text(
