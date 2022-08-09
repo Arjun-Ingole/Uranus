@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uranus/screens/MainScreen.dart';
-import 'package:uranus/screens/ErrorScreen.dart';
 
 void main() => runApp(App());
 
@@ -10,7 +9,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ErrorScreen(),
+      home: MainScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
