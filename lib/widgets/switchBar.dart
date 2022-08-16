@@ -9,7 +9,7 @@ class SwitchBar extends StatefulWidget {
 }
 
 class _SwitchBarState extends State<SwitchBar> {
-  MusicSource? _selectedSource;
+  MusicSource? selectedSource;
   Color InActivecolor = Color(0xff2C2C2C);
   Color Activecolor = Color(0xffCF5167);
   @override
@@ -25,15 +25,17 @@ class _SwitchBarState extends State<SwitchBar> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           customButton(
-              _selectedSource == MusicSource.JPOP ? Activecolor : InActivecolor, 'JPOP', () {
+              selectedSource == MusicSource.JPOP ? Activecolor : InActivecolor,
+              'JPOP', () {
             setState(() {
-              _selectedSource = MusicSource.JPOP;
+              selectedSource = MusicSource.JPOP;
             });
           }),
           customButton(
-              _selectedSource == MusicSource.KPOP ? Activecolor : InActivecolor, 'KPOP', () {
+              selectedSource == MusicSource.KPOP ? Activecolor : InActivecolor,
+              'KPOP', () {
             setState(() {
-              _selectedSource = MusicSource.KPOP;
+              selectedSource = MusicSource.KPOP;
             });
           }),
         ],
@@ -70,7 +72,7 @@ Widget customButton(Color colour, String category, VoidCallback onPressed) {
   );
 }
 
-enum MusicSource{
+enum MusicSource {
   KPOP,
   JPOP,
 }
