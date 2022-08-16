@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:uranus/widgets/playButton.dart';
 
 class SwitchBar extends StatefulWidget {
   const SwitchBar({Key? key}) : super(key: key);
@@ -9,7 +10,6 @@ class SwitchBar extends StatefulWidget {
 }
 
 class _SwitchBarState extends State<SwitchBar> {
-  MusicSource? selectedSource;
   Color InActivecolor = Color(0xff2C2C2C);
   Color Activecolor = Color(0xffCF5167);
   @override
@@ -29,6 +29,8 @@ class _SwitchBarState extends State<SwitchBar> {
               'JPOP', () {
             setState(() {
               selectedSource = MusicSource.JPOP;
+              getSource();
+              switchSource();
             });
           }),
           customButton(
@@ -36,6 +38,8 @@ class _SwitchBarState extends State<SwitchBar> {
               'KPOP', () {
             setState(() {
               selectedSource = MusicSource.KPOP;
+              getSource();
+              switchSource();
             });
           }),
         ],
@@ -76,3 +80,5 @@ enum MusicSource {
   KPOP,
   JPOP,
 }
+
+MusicSource selectedSource = MusicSource.JPOP;

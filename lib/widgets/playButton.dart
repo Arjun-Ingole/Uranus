@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:uranus/models/sources.dart';
+import 'switchBar.dart';
 
 class PlayButton extends StatefulWidget {
   const PlayButton({Key? key}) : super(key: key);
@@ -12,8 +13,6 @@ class PlayButton extends StatefulWidget {
 class _PlayButtonState extends State<PlayButton> {
   @override
   bool isPlaying = false;
-  final player = AudioPlayer();
-  String source = KPOP;
 
   void initState() {
     super.initState();
@@ -50,4 +49,20 @@ class _PlayButtonState extends State<PlayButton> {
       ),
     );
   }
+}
+
+String source = JPOP;
+final player = AudioPlayer();
+
+void getSource() {
+  if (selectedSource == MusicSource.JPOP) {
+    source = JPOP;
+  } else if (selectedSource == MusicSource.KPOP) {
+    source = KPOP;
+  }
+}
+
+void switchSource() async {
+  player.stop();
+  await player.play(source);
 }
