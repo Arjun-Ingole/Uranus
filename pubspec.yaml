@@ -37,6 +37,7 @@ dependencies:
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.1.0
   audioplayers: ^0.20.1
+  web_socket_channel: ^2.2.0
 
 dev_dependencies:
   flutter_test:
