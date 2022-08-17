@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:uranus/widgets/playButton.dart';
 
+MusicSource selectedSource = MusicSource.JPOP;
+
+enum MusicSource {
+  KPOP,
+  JPOP,
+}
+
 class SwitchBar extends StatefulWidget {
   const SwitchBar({Key? key}) : super(key: key);
 
@@ -78,10 +85,3 @@ Widget customButton(Color colour, String category, VoidCallback onPressed) {
     ),
   );
 }
-
-enum MusicSource {
-  KPOP,
-  JPOP,
-}
-
-MusicSource selectedSource = MusicSource.JPOP;

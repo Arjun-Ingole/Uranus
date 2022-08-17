@@ -3,6 +3,21 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:uranus/models/sources.dart';
 import 'switchBar.dart';
 
+String source = JPOP;
+final player = AudioPlayer();
+
+void getSource() {
+  if (selectedSource == MusicSource.JPOP) {
+    source = JPOP;
+  } else if (selectedSource == MusicSource.KPOP) {
+    source = KPOP;
+  }
+}
+
+void switchSource() {
+  player.stop();
+}
+
 class PlayButton extends StatefulWidget {
   const PlayButton({Key? key}) : super(key: key);
 
@@ -49,19 +64,4 @@ class _PlayButtonState extends State<PlayButton> {
       ),
     );
   }
-}
-
-String source = JPOP;
-final player = AudioPlayer();
-
-void getSource() {
-  if (selectedSource == MusicSource.JPOP) {
-    source = JPOP;
-  } else if (selectedSource == MusicSource.KPOP) {
-    source = KPOP;
-  }
-}
-
-void switchSource() {
-  player.stop();
 }
