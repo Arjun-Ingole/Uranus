@@ -54,11 +54,14 @@ Widget customButton(Color colour, String category, VoidCallback onPressed) {
     child: InkWell(
       onTap: onPressed,
       child: Container(
-        height: 50,
-        width: 100,
-        margin: EdgeInsets.all(7),
+        height: 45,
+        width: 90,
+        margin: EdgeInsets.only(
+          right: 10,
+          left: 10,
+        ),
         decoration: BoxDecoration(
-            color: colour, borderRadius: BorderRadius.circular(24.0)),
+            color: colour, borderRadius: BorderRadius.circular(12.0)),
         child: Center(
           child: Material(
             child: Text(
