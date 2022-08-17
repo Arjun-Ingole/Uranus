@@ -1,2 +1,2 @@
-const JPOP = 'https://listen.moe/stream';
-const KPOP = 'https://listen.moe/kpop/stream';
+const JPOP = 'https://listen.moe/fallback';
+const KPOP = 'https://listen.moe/kpop/fallback';
