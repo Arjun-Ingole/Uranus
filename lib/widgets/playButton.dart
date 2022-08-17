@@ -62,7 +62,6 @@ void getSource() {
   }
 }
 
-void switchSource() async {
+void switchSource() {
   player.stop();
-  await player.play(source);
 }
