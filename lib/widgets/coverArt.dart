@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 
-Widget CoverArt() {
-  return Padding(
-    padding: EdgeInsets.all(25),
-    child: ClipRRect(
-      child: Image.asset('assets/test.jpg'),
-      borderRadius: BorderRadius.circular(10),
-    ),
-  );
+class CoverArt extends StatefulWidget {
+  CoverArt({required this.url});
+  String url;
+  @override
+  State<CoverArt> createState() => _CoverArtState();
+}
+
+class _CoverArtState extends State<CoverArt> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.all(25),
+      child: FittedBox(
+        alignment: Alignment.center,
+        fit: BoxFit.cover,
+        child: Image.network(widget.url),
+        clipBehavior: Clip.hardEdge,
+      ),
+    );
+  }
 }

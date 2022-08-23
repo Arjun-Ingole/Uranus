@@ -5,7 +5,8 @@ import 'package:uranus/widgets/playButton.dart';
 import 'package:uranus/widgets/switchBar.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  MainScreen({required this.URL});
+  String URL;
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -28,7 +29,9 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CoverArt(),
+            CoverArt(
+              url: widget.URL,
+            ),
             SwitchBar(),
             Padding(
               padding: const EdgeInsets.all(15),
