@@ -201,7 +201,7 @@ D _$DFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$D {
   Song get song => throw _privateConstructorUsedError;
-  String? get requester => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get requester => throw _privateConstructorUsedError;
   String? get event => throw _privateConstructorUsedError;
   String? get startTime => throw _privateConstructorUsedError;
   List<Song> get lastPlayed => throw _privateConstructorUsedError;
@@ -217,7 +217,7 @@ abstract class $DCopyWith<$Res> {
   factory $DCopyWith(D value, $Res Function(D) then) = _$DCopyWithImpl<$Res>;
   $Res call(
       {Song song,
-      String? requester,
+      Map<String, dynamic>? requester,
       String? event,
       String? startTime,
       List<Song> lastPlayed,
@@ -251,7 +251,7 @@ class _$DCopyWithImpl<$Res> implements $DCopyWith<$Res> {
       requester: requester == freezed
           ? _value.requester
           : requester // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Map<String, dynamic>?,
       event: event == freezed
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -286,7 +286,7 @@ abstract class _$$_DCopyWith<$Res> implements $DCopyWith<$Res> {
   @override
   $Res call(
       {Song song,
-      String? requester,
+      Map<String, dynamic>? requester,
       String? event,
       String? startTime,
       List<Song> lastPlayed,
@@ -320,9 +320,9 @@ class __$$_DCopyWithImpl<$Res> extends _$DCopyWithImpl<$Res>
           : song // ignore: cast_nullable_to_non_nullable
               as Song,
       requester: requester == freezed
-          ? _value.requester
+          ? _value._requester
           : requester // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Map<String, dynamic>?,
       event: event == freezed
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -348,19 +348,27 @@ class __$$_DCopyWithImpl<$Res> extends _$DCopyWithImpl<$Res>
 class _$_D implements _D {
   _$_D(
       {required this.song,
-      required this.requester,
+      required final Map<String, dynamic>? requester,
       required this.event,
       required this.startTime,
       required final List<Song> lastPlayed,
       required this.listeners})
-      : _lastPlayed = lastPlayed;
+      : _requester = requester,
+        _lastPlayed = lastPlayed;
 
   factory _$_D.fromJson(Map<String, dynamic> json) => _$$_DFromJson(json);
 
   @override
   final Song song;
+  final Map<String, dynamic>? _requester;
   @override
-  final String? requester;
+  Map<String, dynamic>? get requester {
+    final value = _requester;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final String? event;
   @override
@@ -386,7 +394,8 @@ class _$_D implements _D {
         (other.runtimeType == runtimeType &&
             other is _$_D &&
             const DeepCollectionEquality().equals(other.song, song) &&
-            const DeepCollectionEquality().equals(other.requester, requester) &&
+            const DeepCollectionEquality()
+                .equals(other._requester, _requester) &&
             const DeepCollectionEquality().equals(other.event, event) &&
             const DeepCollectionEquality().equals(other.startTime, startTime) &&
             const DeepCollectionEquality()
@@ -399,7 +408,7 @@ class _$_D implements _D {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(song),
-      const DeepCollectionEquality().hash(requester),
+      const DeepCollectionEquality().hash(_requester),
       const DeepCollectionEquality().hash(event),
       const DeepCollectionEquality().hash(startTime),
       const DeepCollectionEquality().hash(_lastPlayed),
@@ -421,7 +430,7 @@ class _$_D implements _D {
 abstract class _D implements D {
   factory _D(
       {required final Song song,
-      required final String? requester,
+      required final Map<String, dynamic>? requester,
       required final String? event,
       required final String? startTime,
       required final List<Song> lastPlayed,
@@ -432,7 +441,7 @@ abstract class _D implements D {
   @override
   Song get song;
   @override
-  String? get requester;
+  Map<String, dynamic>? get requester;
   @override
   String? get event;
   @override

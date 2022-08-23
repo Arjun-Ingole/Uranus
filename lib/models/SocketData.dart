@@ -17,7 +17,7 @@ class MusicData with _$MusicData {
 class D with _$D {
   factory D({
     required Song song,
-    required String? requester,
+    required Map<String, dynamic>? requester,
     required String? event,
     required String? startTime,
     required List<Song> lastPlayed,

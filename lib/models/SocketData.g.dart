@@ -21,7 +21,7 @@ Map<String, dynamic> _$$_MusicDataToJson(_$_MusicData instance) =>
 
 _$_D _$$_DFromJson(Map<String, dynamic> json) => _$_D(
       song: Song.fromJson(json['song'] as Map<String, dynamic>),
-      requester: json['requester'] as String?,
+      requester: json['requester'] as Map<String, dynamic>?,
       event: json['event'] as String?,
       startTime: json['startTime'] as String?,
       lastPlayed: (json['lastPlayed'] as List<dynamic>)
