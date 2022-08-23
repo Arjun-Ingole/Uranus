@@ -1,134 +1,64 @@
-import 'dart:convert';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'SocketData.freezed.dart';
+part 'SocketData.g.dart';
 
-MusicData musicDataFromJson(String str) => MusicData.fromJson(json.decode(str));
-String musicDataToJson(MusicData data) => json.encode(data.toJson());
-
-class MusicData {
-  MusicData({
-    this.op,
-    this.d,
-    this.t,
-  });
-
-  int? op;
-  D? d;
-  String? t;
-
-  factory MusicData.fromJson(Map<String, dynamic> json) => MusicData(
-        op: json["op"],
-        d: D.fromJson(json["d"]),
-        t: json["t"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "op": op,
-        "d": d?.toJson(),
-        "t": t,
-      };
+@freezed
+class MusicData with _$MusicData {
+  factory MusicData({
+    required int op,
+    required D d,
+    required String t,
+  }) = _MusicData;
+  factory MusicData.fromJson(Map<String, Object?> json) =>
+      _$MusicDataFromJson(json);
 }
 
-class D {
-  D({
-    this.song,
-    this.requester,
-    this.event,
-    this.startTime,
-    this.lastPlayed,
-    this.listeners,
-  });
-
-  Song? song;
-  dynamic? requester;
-  dynamic? event;
-  DateTime? startTime;
-  List<Song>? lastPlayed;
-  int? listeners;
-
-  factory D.fromJson(Map<String, dynamic> json) => D(
-        song: Song.fromJson(json["song"]),
-        requester: json["requester"],
-        event: json["event"],
-        startTime: DateTime.parse(json["startTime"]),
-        lastPlayed:
-            List<Song>.from(json["lastPlayed"].map((x) => Song.fromJson(x))),
-        listeners: json["listeners"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "song": song?.toJson(),
-        "requester": requester,
-        "event": event,
-        "startTime": startTime?.toIso8601String(),
-        "lastPlayed": List<dynamic>.from(lastPlayed!.map((x) => x.toJson())),
-        "listeners": listeners,
-      };
+@freezed
+class D with _$D {
+  factory D({
+    required Song song,
+    required String? requester,
+    required String? event,
+    required String? startTime,
+    required List<Song> lastPlayed,
+    required int listeners,
+  }) = _D;
+  factory D.fromJson(Map<String, Object?> json) => _$DFromJson(json);
 }
 
-class Song {
-  Song({
-    this.id,
-    this.title,
-    this.sources,
-    this.artists,
-    this.albums,
-    this.duration,
-    this.favorite,
-  });
-
-  int? id;
-  String? title;
-  List<dynamic>? sources;
-  List<Album>? artists;
-  List<Album>? albums;
-  int? duration;
-  bool? favorite;
-
-  factory Song.fromJson(Map<String, dynamic> json) => Song(
-        id: json["id"],
-        title: json["title"],
-        sources: List<dynamic>.from(json["sources"].map((x) => x)),
-        artists:
-            List<Album>.from(json["artists"].map((x) => Album.fromJson(x))),
-        albums: List<Album>.from(json["albums"].map((x) => Album.fromJson(x))),
-        duration: json["duration"],
-        favorite: json["favorite"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "sources": List<dynamic>.from(sources!.map((x) => x)),
-        "artists": List<dynamic>.from(artists!.map((x) => x.toJson())),
-        "albums": List<dynamic>.from(albums!.map((x) => x.toJson())),
-        "duration": duration,
-        "favorite": favorite,
-      };
+@freezed
+class Song with _$Song {
+  factory Song({
+    required int id,
+    required String title,
+    required List<dynamic> sources,
+    required List<Artist> artists,
+    required List<dynamic> characters,
+    required List<Album> albums,
+    required int duration,
+  }) = _Song;
+  factory Song.fromJson(Map<String, Object?> json) => _$SongFromJson(json);
 }
 
-class Album {
-  Album({
-    this.id,
-    this.name,
-    this.nameRomaji,
-    this.image,
-  });
+@freezed
+class Album with _$Album {
+  factory Album({
+    required int id,
+    required String? name,
+    required String? nameRomaji,
+    required String? image,
+  }) = _Album;
+  factory Album.fromJson(Map<String, Object?> json) => _$AlbumFromJson(json);
+}
 
-  int? id;
-  String? name;
-  String? nameRomaji;
-  String? image;
-
-  factory Album.fromJson(Map<String, dynamic> json) => Album(
-        id: json["id"],
-        name: json["name"],
-        nameRomaji: json["nameRomaji"] == null ? null : json["nameRomaji"],
-        image: json["image"] == null ? null : json["image"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "nameRomaji": nameRomaji == null ? null : nameRomaji,
-        "image": image == null ? null : image,
-      };
+@freezed
+class Artist with _$Artist {
+  factory Artist({
+    required int id,
+    required String? name,
+    required String? nameRomaji,
+    required String? image,
+    required List<dynamic> characters,
+  }) = _Artist;
+  factory Artist.fromJson(Map<String, Object?> json) => _$ArtistFromJson(json);
 }
