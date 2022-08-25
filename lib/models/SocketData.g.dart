@@ -46,7 +46,7 @@ _$_Song _$$_SongFromJson(Map<String, dynamic> json) => _$_Song(
       artists: (json['artists'] as List<dynamic>)
           .map((e) => Artist.fromJson(e as Map<String, dynamic>))
           .toList(),
-      characters: json['characters'] as List<dynamic>,
+      characters: json['characters'] as List<dynamic>?,
       albums: (json['albums'] as List<dynamic>)
           .map((e) => Album.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -82,7 +82,7 @@ _$_Artist _$$_ArtistFromJson(Map<String, dynamic> json) => _$_Artist(
       name: json['name'] as String?,
       nameRomaji: json['nameRomaji'] as String?,
       image: json['image'] as String?,
-      characters: json['characters'] as List<dynamic>,
+      characters: json['characters'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$$_ArtistToJson(_$_Artist instance) => <String, dynamic>{

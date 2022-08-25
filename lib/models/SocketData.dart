@@ -33,7 +33,7 @@ class Song with _$Song {
     required String title,
     required List<dynamic> sources,
     required List<Artist> artists,
-    required List<dynamic> characters,
+    required List<dynamic>? characters,
     required List<Album> albums,
     required int duration,
   }) = _Song;
@@ -58,7 +58,7 @@ class Artist with _$Artist {
     required String? name,
     required String? nameRomaji,
     required String? image,
-    required List<dynamic> characters,
+    required List<dynamic>? characters,
   }) = _Artist;
   factory Artist.fromJson(Map<String, Object?> json) => _$ArtistFromJson(json);
 }

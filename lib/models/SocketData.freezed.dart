@@ -465,7 +465,7 @@ mixin _$Song {
   String get title => throw _privateConstructorUsedError;
   List<dynamic> get sources => throw _privateConstructorUsedError;
   List<Artist> get artists => throw _privateConstructorUsedError;
-  List<dynamic> get characters => throw _privateConstructorUsedError;
+  List<dynamic>? get characters => throw _privateConstructorUsedError;
   List<Album> get albums => throw _privateConstructorUsedError;
   int get duration => throw _privateConstructorUsedError;
 
@@ -483,7 +483,7 @@ abstract class $SongCopyWith<$Res> {
       String title,
       List<dynamic> sources,
       List<Artist> artists,
-      List<dynamic> characters,
+      List<dynamic>? characters,
       List<Album> albums,
       int duration});
 }
@@ -526,7 +526,7 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<dynamic>?,
       albums: albums == freezed
           ? _value.albums
           : albums // ignore: cast_nullable_to_non_nullable
@@ -549,7 +549,7 @@ abstract class _$$_SongCopyWith<$Res> implements $SongCopyWith<$Res> {
       String title,
       List<dynamic> sources,
       List<Artist> artists,
-      List<dynamic> characters,
+      List<dynamic>? characters,
       List<Album> albums,
       int duration});
 }
@@ -593,7 +593,7 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
       characters: characters == freezed
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<dynamic>?,
       albums: albums == freezed
           ? _value._albums
           : albums // ignore: cast_nullable_to_non_nullable
@@ -614,7 +614,7 @@ class _$_Song implements _Song {
       required this.title,
       required final List<dynamic> sources,
       required final List<Artist> artists,
-      required final List<dynamic> characters,
+      required final List<dynamic>? characters,
       required final List<Album> albums,
       required this.duration})
       : _sources = sources,
@@ -642,11 +642,13 @@ class _$_Song implements _Song {
     return EqualUnmodifiableListView(_artists);
   }
 
-  final List<dynamic> _characters;
+  final List<dynamic>? _characters;
   @override
-  List<dynamic> get characters {
+  List<dynamic>? get characters {
+    final value = _characters;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_characters);
+    return EqualUnmodifiableListView(value);
   }
 
   final List<Album> _albums;
@@ -710,7 +712,7 @@ abstract class _Song implements Song {
       required final String title,
       required final List<dynamic> sources,
       required final List<Artist> artists,
-      required final List<dynamic> characters,
+      required final List<dynamic>? characters,
       required final List<Album> albums,
       required final int duration}) = _$_Song;
 
@@ -725,7 +727,7 @@ abstract class _Song implements Song {
   @override
   List<Artist> get artists;
   @override
-  List<dynamic> get characters;
+  List<dynamic>? get characters;
   @override
   List<Album> get albums;
   @override
@@ -932,7 +934,7 @@ mixin _$Artist {
   String? get name => throw _privateConstructorUsedError;
   String? get nameRomaji => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
-  List<dynamic> get characters => throw _privateConstructorUsedError;
+  List<dynamic>? get characters => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -948,7 +950,7 @@ abstract class $ArtistCopyWith<$Res> {
       String? name,
       String? nameRomaji,
       String? image,
-      List<dynamic> characters});
+      List<dynamic>? characters});
 }
 
 /// @nodoc
@@ -987,7 +989,7 @@ class _$ArtistCopyWithImpl<$Res> implements $ArtistCopyWith<$Res> {
       characters: characters == freezed
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<dynamic>?,
     ));
   }
 }
@@ -1002,7 +1004,7 @@ abstract class _$$_ArtistCopyWith<$Res> implements $ArtistCopyWith<$Res> {
       String? name,
       String? nameRomaji,
       String? image,
-      List<dynamic> characters});
+      List<dynamic>? characters});
 }
 
 /// @nodoc
@@ -1042,7 +1044,7 @@ class __$$_ArtistCopyWithImpl<$Res> extends _$ArtistCopyWithImpl<$Res>
       characters: characters == freezed
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<dynamic>?,
     ));
   }
 }
@@ -1055,7 +1057,7 @@ class _$_Artist implements _Artist {
       required this.name,
       required this.nameRomaji,
       required this.image,
-      required final List<dynamic> characters})
+      required final List<dynamic>? characters})
       : _characters = characters;
 
   factory _$_Artist.fromJson(Map<String, dynamic> json) =>
@@ -1069,11 +1071,13 @@ class _$_Artist implements _Artist {
   final String? nameRomaji;
   @override
   final String? image;
-  final List<dynamic> _characters;
+  final List<dynamic>? _characters;
   @override
-  List<dynamic> get characters {
+  List<dynamic>? get characters {
+    final value = _characters;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_characters);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -1124,7 +1128,7 @@ abstract class _Artist implements Artist {
       required final String? name,
       required final String? nameRomaji,
       required final String? image,
-      required final List<dynamic> characters}) = _$_Artist;
+      required final List<dynamic>? characters}) = _$_Artist;
 
   factory _Artist.fromJson(Map<String, dynamic> json) = _$_Artist.fromJson;
 
@@ -1137,7 +1141,7 @@ abstract class _Artist implements Artist {
   @override
   String? get image;
   @override
-  List<dynamic> get characters;
+  List<dynamic>? get characters;
   @override
   @JsonKey(ignore: true)
   _$$_ArtistCopyWith<_$_Artist> get copyWith =>
