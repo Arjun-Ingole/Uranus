@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uranus/models/SocketData.dart';
 import 'package:uranus/screens/ErrorScreen.dart';
 import 'package:uranus/screens/MainScreen.dart';
@@ -8,7 +7,7 @@ import 'package:web_socket_channel/io.dart';
 import 'package:uranus/services/services.dart';
 
 class GetData extends StatefulWidget {
-  GetData({Key? key}) : super(key: key);
+  const GetData({Key? key}) : super(key: key);
 
   @override
   State<GetData> createState() => _GetDataState();
@@ -31,6 +30,8 @@ class _GetDataState extends State<GetData> {
             var op = d['op'];
             switch (op) {
               case 0:
+                channel.sink.add(jsonEncode({"op": 9}));
+                sendPings(channel, heartbeat);
                 break;
               case 1:
                 if (d['t'] != 'TRACK_UPDATE' &&
@@ -38,22 +39,20 @@ class _GetDataState extends State<GetData> {
                     d['t'] != 'QUEUE_UPDATE' &&
                     d['t'] != 'NOTIFICATION') break;
                 data = MusicData.fromJson(d);
-                break;
-              case 9:
-                sendPings(channel, heartbeat).then((value) => {});
+                sendPings(channel, heartbeat);
                 break;
               default:
+                sendPings(channel, heartbeat);
+                break;
             }
           }
           if (snapshot.data != null) {
-            print(getImage(data!));
             return MainScreen(URL: getImage(data!));
           }
         } catch (e) {
-          print(e);
-          return ErrorScreen();
+          return const ErrorScreen();
         }
-        return Center(
+        return const Center(
           child: Center(child: CircularProgressIndicator()),
         );
       }),
