@@ -4,7 +4,7 @@ import 'package:uranus/models/SocketData.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-late int heartbeat;
+int heartbeat = 45000;
 String default_image =
     'https://rare-gallery.com/thumbnail/394707-wallpaper-error-404-anime-4k-hd.jpg';
 
@@ -25,15 +25,13 @@ connect() {
     var data = jsonDecode(event);
     if (data['op'] == 0) {
       heartbeat = data['d']['heartbeat'];
-    } else {
-      heartbeat = 45000;
     }
-    sendPings(channel, heartbeat).then((value) => {});
+    sendPings(channel, heartbeat);
   });
 }
 
-Future<void> sendPings(WebSocketChannel channel, int heartbeat) async {
-  await Future.delayed(Duration(milliseconds: heartbeat), () {
+sendPings(WebSocketChannel channel, int heartbeat) {
+  Future.delayed(Duration(milliseconds: heartbeat), () {
     try {
       channel.sink.add(jsonEncode({"op": 9}));
     } catch (e) {
