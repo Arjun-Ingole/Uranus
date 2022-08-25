@@ -5,9 +5,11 @@ import 'package:uranus/widgets/playButton.dart';
 import 'package:uranus/widgets/switchBar.dart';
 
 class MainScreen extends StatefulWidget {
-  MainScreen({required this.URL});
+  MainScreen(
+      {required this.URL, required this.Song_Title, required this.Artist});
   String URL;
-
+  String Song_Title;
+  String Artist;
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
@@ -38,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  'Into The Night',
+                  widget.Song_Title,
                   style: TextStyle(
                     fontSize: 40,
                     fontFamily: GoogleFonts.epilogue().fontFamily,
@@ -50,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
             Material(
               color: Colors.transparent,
               child: Text(
-                'Yoasobi -  夜に駆ける',
+                widget.Artist,
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: GoogleFonts.epilogue().fontFamily,

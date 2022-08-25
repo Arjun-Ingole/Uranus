@@ -47,7 +47,11 @@ class _GetDataState extends State<GetData> {
             }
           }
           if (snapshot.data != null) {
-            return MainScreen(URL: getImage(data!));
+            return MainScreen(
+              URL: getImage(data!),
+              Song_Title: getTitle(data!),
+              Artist: getArtist(data!),
+            );
           }
         } catch (e) {
           return const ErrorScreen();

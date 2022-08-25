@@ -54,3 +54,33 @@ String getImage(MusicData data) {
   }
   return image;
 }
+
+String getTitle(MusicData data) {
+  String song_title = "Unknown";
+  try {
+    song_title = data.d.song.title;
+  } catch (e) {
+    return song_title;
+  }
+  return (song_title.length > 8)
+      ? song_title.substring(0, 8) + '..'
+      : song_title;
+}
+
+String getArtist(MusicData data) {
+  String artist_name = "Unknown";
+  final List<Artist> artist_list = data.d.song.artists;
+  try {
+    for (int i = 0; i < artist_list.length; i++) {
+      if (artist_list[i].name != null) {
+        artist_name = artist_list[i].name!;
+      } else if (artist_list[i].nameRomaji != null) {
+        artist_name = artist_list[i].nameRomaji!;
+      }
+      break;
+    }
+  } catch (e) {
+    return artist_name;
+  }
+  return artist_name;
+}
