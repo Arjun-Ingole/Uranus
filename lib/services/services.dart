@@ -9,7 +9,7 @@ String default_image =
     'https://rare-gallery.com/thumbnail/394707-wallpaper-error-404-anime-4k-hd.jpg';
 
 String getSocketURL() {
-  String url = 'wss://listen.moe/gateway_v2';
+  late String url;
   if (selectedSource == MusicSource.JPOP) {
     url = 'wss://listen.moe/gateway_v2';
   } else if (selectedSource == MusicSource.KPOP) {
