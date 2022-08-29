@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:uranus/models/SocketData.dart';
 import 'package:uranus/screens/ErrorScreen.dart';
 import 'package:uranus/screens/MainScreen.dart';
+import 'package:uranus/services/getColor.dart';
+import 'package:uranus/widgets/playButton.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:uranus/services/services.dart';
 
@@ -17,6 +19,14 @@ class _GetDataState extends State<GetData> {
   @override
   MusicData? data;
   IOWebSocketChannel channel = IOWebSocketChannel.connect(getSocketURL());
+  Color accentColor = Color(0x00EF5D77);
+
+  Future<Color> setColor() async {
+    accentColor = await getColor(getImage(data!));
+    setState(() {});
+    return accentColor;
+  }
+
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: channel.stream,
@@ -40,6 +50,7 @@ class _GetDataState extends State<GetData> {
                     d['t'] != 'NOTIFICATION') break;
                 data = MusicData.fromJson(d);
                 sendPings(channel, heartbeat);
+                setColor();
                 break;
               default:
                 sendPings(channel, heartbeat);
@@ -51,6 +62,7 @@ class _GetDataState extends State<GetData> {
               URL: getImage(data!),
               Song_Title: getTitle(data!),
               Artist: getArtist(data!),
+              Accent_Color: accentColor,
             );
           }
         } catch (e) {

@@ -40,6 +40,8 @@ dependencies:
   web_socket_channel: ^2.2.0
   freezed_annotation: ^2.1.0
   json_annotation: ^4.6.0
+  palette_generator: ^0.3.3+2
+  color_thief_flutter: ^1.0.2
 
 dev_dependencies:
   flutter_test:

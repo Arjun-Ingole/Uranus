@@ -6,10 +6,14 @@ import 'package:uranus/widgets/switchBar.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen(
-      {required this.URL, required this.Song_Title, required this.Artist});
+      {required this.URL,
+      required this.Song_Title,
+      required this.Artist,
+      required this.Accent_Color});
   String URL;
   String Song_Title;
   String Artist;
+  Color Accent_Color;
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
@@ -24,7 +28,8 @@ class _MainScreenState extends State<MainScreen> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: <Color>[
-            Color(0x00EF5D77),
+            widget.Accent_Color,
+            Color(0xff000000),
             Color(0xff000000),
           ],
         )),
@@ -34,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
             CoverArt(
               url: widget.URL,
             ),
-            SwitchBar(),
+            SwitchBar(Accent_Color: widget.Accent_Color),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Material(
@@ -60,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
             ),
-            PlayButton(),
+            PlayButton(Accent_Color: widget.Accent_Color),
           ],
         ),
       ),

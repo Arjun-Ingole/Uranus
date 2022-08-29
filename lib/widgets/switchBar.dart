@@ -11,16 +11,15 @@ enum MusicSource {
 }
 
 class SwitchBar extends StatefulWidget {
-  const SwitchBar({Key? key}) : super(key: key);
-
+  SwitchBar({required this.Accent_Color});
+  Color Accent_Color;
   @override
   State<SwitchBar> createState() => _SwitchBarState();
 }
 
 class _SwitchBarState extends State<SwitchBar> {
-  Color InActivecolor = Color(0xff2C2C2C);
-  Color Activecolor = Color(0xffCF5167);
   @override
+  Color InActivecolor = Color(0xff2C2C2C);
   Widget build(BuildContext context) {
     return Container(
       height: 50,
@@ -33,7 +32,9 @@ class _SwitchBarState extends State<SwitchBar> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           customButton(
-              selectedSource == MusicSource.JPOP ? Activecolor : InActivecolor,
+              selectedSource == MusicSource.JPOP
+                  ? widget.Accent_Color
+                  : InActivecolor,
               'JPOP', () {
             setState(() {
               selectedSource = MusicSource.JPOP;
@@ -42,7 +43,9 @@ class _SwitchBarState extends State<SwitchBar> {
             });
           }),
           customButton(
-              selectedSource == MusicSource.KPOP ? Activecolor : InActivecolor,
+              selectedSource == MusicSource.KPOP
+                  ? widget.Accent_Color
+                  : InActivecolor,
               'KPOP', () {
             setState(() {
               selectedSource = MusicSource.KPOP;

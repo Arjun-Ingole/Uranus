@@ -19,9 +19,10 @@ void switchSource() {
 }
 
 class PlayButton extends StatefulWidget {
-  const PlayButton({Key? key}) : super(key: key);
+  PlayButton({required this.Accent_Color});
 
   @override
+  Color Accent_Color;
   State<PlayButton> createState() => _PlayButtonState();
 }
 
@@ -57,7 +58,7 @@ class _PlayButtonState extends State<PlayButton> {
           },
           icon: Icon(
             isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
-            color: Color(0xffCF5167),
+            color: widget.Accent_Color,
             size: 50,
           ),
         ),
