@@ -62,7 +62,7 @@ class _SwitchBarState extends State<SwitchBar> {
 Widget customButton(Color colour, String category, VoidCallback onPressed) {
   return Material(
     color: Colors.transparent,
-    child: InkWell(
+    child: GestureDetector(
       onTap: onPressed,
       child: Container(
         height: 45,
