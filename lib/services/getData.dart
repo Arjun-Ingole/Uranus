@@ -4,7 +4,6 @@ import 'package:uranus/models/SocketData.dart';
 import 'package:uranus/screens/ErrorScreen.dart';
 import 'package:uranus/screens/MainScreen.dart';
 import 'package:uranus/services/getColor.dart';
-import 'package:uranus/widgets/playButton.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:uranus/services/services.dart';
 
