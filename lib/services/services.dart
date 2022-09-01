@@ -6,7 +6,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 int heartbeat = 45000;
 String default_image =
-    'https://rare-gallery.com/thumbnail/394707-wallpaper-error-404-anime-4k-hd.jpg';
+    'https://media.wired.com/photos/5f87340d114b38fa1f8339f9/master/w_1600,c_limit/Ideas_Surprised_Pikachu_HD.jpg';
 
 String getSocketURL() {
   late String url;
