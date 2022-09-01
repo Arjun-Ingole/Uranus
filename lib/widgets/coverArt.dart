@@ -14,11 +14,14 @@ class _CoverArtState extends State<CoverArt> {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(25),
-      child: FittedBox(
-        alignment: Alignment.center,
-        fit: BoxFit.cover,
-        child: Image.network(widget.url),
-        clipBehavior: Clip.hardEdge,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: FittedBox(
+          alignment: Alignment.center,
+          fit: BoxFit.cover,
+          child: Image.network(widget.url),
+          clipBehavior: Clip.hardEdge,
+        ),
       ),
     );
   }
