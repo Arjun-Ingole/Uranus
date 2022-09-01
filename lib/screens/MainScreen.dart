@@ -45,6 +45,9 @@ class _MainScreenState extends State<MainScreen> {
               color: Colors.transparent,
               child: Text(
                 widget.Song_Title,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 40,
                   fontFamily: GoogleFonts.epilogue().fontFamily,

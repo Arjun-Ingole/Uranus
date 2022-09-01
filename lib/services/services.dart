@@ -62,9 +62,7 @@ String getTitle(MusicData data) {
   } catch (e) {
     return song_title;
   }
-  return (song_title.length > 8)
-      ? song_title.substring(0, 8) + '..'
-      : song_title;
+  return song_title;
 }
 
 String getArtist(MusicData data) {
