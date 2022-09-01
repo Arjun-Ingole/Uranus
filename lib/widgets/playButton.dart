@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:uranus/models/sources.dart';
+import 'package:flutter/services.dart';
 import 'switchBar.dart';
 
 String source = JPOP;
@@ -32,6 +33,7 @@ class _PlayButtonState extends State<PlayButton> {
 
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     player.onPlayerStateChanged.listen((state) {
       setState(() {
         isPlaying = state == PlayerState.PLAYING;
