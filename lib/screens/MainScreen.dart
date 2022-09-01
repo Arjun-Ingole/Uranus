@@ -21,53 +21,51 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: <Color>[
-            widget.Accent_Color,
-            Color(0xff000000),
-            Color(0xff000000),
-          ],
-        )),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CoverArt(
-              url: widget.URL,
-            ),
-            SwitchBar(Accent_Color: widget.Accent_Color),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Material(
-                color: Colors.transparent,
-                child: Text(
-                  widget.Song_Title,
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontFamily: GoogleFonts.epilogue().fontFamily,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            Material(
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: <Color>[
+          widget.Accent_Color,
+          Color(0xff000000),
+          Color(0xff000000),
+        ],
+      )),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CoverArt(
+            url: widget.URL,
+          ),
+          SwitchBar(Accent_Color: widget.Accent_Color),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Material(
               color: Colors.transparent,
               child: Text(
-                widget.Artist,
+                widget.Song_Title,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 40,
                   fontFamily: GoogleFonts.epilogue().fontFamily,
                   color: Colors.white,
                 ),
               ),
             ),
-            PlayButton(Accent_Color: widget.Accent_Color),
-          ],
-        ),
+          ),
+          Material(
+            color: Colors.transparent,
+            child: Text(
+              widget.Artist,
+              style: TextStyle(
+                fontSize: 20,
+                fontFamily: GoogleFonts.epilogue().fontFamily,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          PlayButton(Accent_Color: widget.Accent_Color),
+        ],
       ),
     );
   }
