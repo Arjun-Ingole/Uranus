@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:uranus/models/sources.dart';
 import 'package:flutter/services.dart';
+import 'package:uranus/services/getData.dart';
+import 'package:uranus/services/services.dart';
 import 'switchBar.dart';
 
 String source = JPOP;
@@ -17,6 +19,9 @@ void getSource() {
 
 void switchSource() {
   player.stop();
+  channel.sink.close();
+  connect();
+  const GetData();
 }
 
 class PlayButton extends StatefulWidget {
