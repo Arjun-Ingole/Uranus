@@ -19,7 +19,7 @@ String getSocketURL() {
 }
 
 connect() {
-  WebSocketChannel channel = IOWebSocketChannel.connect(getSocketURL());
+  IOWebSocketChannel channel = getChannel();
   Stream stream = channel.stream.asBroadcastStream();
   stream.listen((event) {
     var data = jsonDecode(event);
@@ -81,4 +81,9 @@ String getArtist(MusicData data) {
     return artist_name;
   }
   return artist_name;
+}
+
+IOWebSocketChannel getChannel() {
+  IOWebSocketChannel channel = IOWebSocketChannel.connect(getSocketURL());
+  return channel;
 }
