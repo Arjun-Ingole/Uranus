@@ -17,17 +17,12 @@ class GetData extends StatefulWidget {
 class _GetDataState extends State<GetData> {
   @override
   MusicData? data;
-  IOWebSocketChannel channel = getChannel();
   Color accentColor = Color(0x00EF5D77);
 
   Future<Color> setColor() async {
     accentColor = await getColor(getImage(data!));
     setState(() {});
     return accentColor;
-  }
-
-  void disconnect() {
-    channel.sink.close();
   }
 
   Widget build(BuildContext context) {

@@ -5,6 +5,7 @@ import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 int heartbeat = 45000;
+late IOWebSocketChannel channel = getChannel();
 String default_image =
     'https://media.wired.com/photos/5f87340d114b38fa1f8339f9/master/w_1600,c_limit/Ideas_Surprised_Pikachu_HD.jpg';
 
@@ -19,7 +20,6 @@ String getSocketURL() {
 }
 
 connect() {
-  IOWebSocketChannel channel = getChannel();
   Stream stream = channel.stream.asBroadcastStream();
   stream.listen((event) {
     var data = jsonDecode(event);
