@@ -26,11 +26,11 @@ connect() {
     if (data['op'] == 0) {
       heartbeat = data['d']['heartbeat'];
     }
-    sendPings(channel, heartbeat);
+    sendPings(heartbeat);
   });
 }
 
-sendPings(WebSocketChannel channel, int heartbeat) {
+sendPings(int heartbeat) {
   Future.delayed(Duration(milliseconds: heartbeat), () {
     try {
       channel.sink.add(jsonEncode({"op": 9}));

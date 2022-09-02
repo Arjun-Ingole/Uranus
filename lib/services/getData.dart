@@ -39,7 +39,7 @@ class _GetDataState extends State<GetData> {
             switch (op) {
               case 0:
                 channel.sink.add(jsonEncode({"op": 9}));
-                sendPings(channel, heartbeat);
+                sendPings(heartbeat);
                 break;
               case 1:
                 if (d['t'] != 'TRACK_UPDATE' &&
@@ -47,11 +47,11 @@ class _GetDataState extends State<GetData> {
                     d['t'] != 'QUEUE_UPDATE' &&
                     d['t'] != 'NOTIFICATION') break;
                 data = MusicData.fromJson(d);
-                sendPings(channel, heartbeat);
+                sendPings(heartbeat);
                 setColor();
                 break;
               default:
-                sendPings(channel, heartbeat);
+                sendPings(heartbeat);
                 break;
             }
           }
