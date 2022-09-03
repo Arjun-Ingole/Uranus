@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:uranus/main.dart';
 import 'package:uranus/models/sources.dart';
 import 'package:flutter/services.dart';
 import 'package:uranus/services/getData.dart';
@@ -19,9 +20,7 @@ void getSource() {
 
 void switchSource() {
   player.stop();
-  channel.sink.close();
-  connect();
-  const GetData();
+  GetData();
 }
 
 class PlayButton extends StatefulWidget {

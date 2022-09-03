@@ -27,7 +27,7 @@ class _GetDataState extends State<GetData> {
 
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: channel.stream,
+      stream: getChannel().stream,
       builder: ((context, snapshot) {
         try {
           if (snapshot.hasData) {
@@ -38,7 +38,7 @@ class _GetDataState extends State<GetData> {
             var op = d['op'];
             switch (op) {
               case 0:
-                channel.sink.add(jsonEncode({"op": 9}));
+                getChannel().sink.add(jsonEncode({"op": 9}));
                 sendPings(heartbeat);
                 break;
               case 1:
