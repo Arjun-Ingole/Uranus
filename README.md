@@ -27,6 +27,7 @@ The Data including Cover art, Title, Artist name is fetched from a Websocket pro
 - [Freezed](https://pub.dev/packages/freezed)
 - [Freezed Annotation](https://pub.dev/packages/freezed_annotation)
 - [JSON Serialiazable](https://pub.dev/packages/json_serializable)
+- [Palette Generator](https://pub.dev/packages/palette_generator)
 
 ## License
 ```MIT License
