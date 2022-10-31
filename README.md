@@ -29,9 +29,12 @@ The Data including Cover art, Title, Artist name is fetched from a Websocket pro
 - [JSON Serialiazable](https://pub.dev/packages/json_serializable)
 - [Palette Generator](https://pub.dev/packages/palette_generator)
 
+
+## Learn flutter
+- [Flutter docs](https://docs.flutter.dev/)
+
 ## License
 ```MIT License
-
 Copyright (c) 2022 Arjun Ingole
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
